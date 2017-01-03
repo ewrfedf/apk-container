@@ -1,9 +1,10 @@
 package me.apk.patch1;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class PatchActivity extends PatchB{
+import me.apk.patch.PatchBaseActivity;
+
+public class PatchActivity extends PatchBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

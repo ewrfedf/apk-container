@@ -1,4 +1,4 @@
-package me.apk.patch1;
+package me.apk.patch;
 
 import android.app.Activity;
 import android.content.Context;

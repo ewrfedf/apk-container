@@ -1,1 +1,1 @@
-include ':app', ':patch1', ':apkpatch'
+include ':app', ':patch1', ':apkpatch', ':apkcontainer2'
