@@ -29,9 +29,9 @@ public abstract class HostEntryActivity extends AppCompatActivity {
      */
     private void hook(String patchPath) {
         try {
-            File dexFile = getFileStreamPath("Patch.apk");
+            File dexFile = getFileStreamPath("patch.apk");
             if (!dexFile.exists()) {
-                Utils.extractAssets(this, "Patch.apk");
+                Utils.extractAssets(this, "patch.apk");
             }
             File optDexFile = getFileStreamPath("xx.odex");//名称任意 非 apk
             BaseDexClassLoaderHookHelper.patchClassLoader(getClassLoader(), dexFile, optDexFile);

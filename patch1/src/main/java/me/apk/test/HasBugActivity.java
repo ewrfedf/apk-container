@@ -10,6 +10,6 @@ public class HasBugActivity extends PatchBaseActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_has_bug);
+        setContentView(R.layout.patch_activity_has_bug);
     }
 }

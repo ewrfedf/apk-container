@@ -22,7 +22,7 @@ public class PatchBaseActivity extends Activity {
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(newBase);
         try {
-            File dexFile = getFileStreamPath("Patch.apk");
+            File dexFile = getFileStreamPath("patch.apk");
             mDexPath = dexFile.getPath();
         } catch (Throwable throwable) {
             throw new RuntimeException("hook failed", throwable);

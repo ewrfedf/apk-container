@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ApkContainer.iml" filepath="$PROJECT_DIR$/ApkContainer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/apkcontainer2/apkcontainer2.iml" filepath="$PROJECT_DIR$/apkcontainer2/apkcontainer2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ApkContainers/ApkContainers.iml" filepath="$PROJECT_DIR$/ApkContainers/ApkContainers.iml" />
       <module fileurl="file://$PROJECT_DIR$/apkpatch/apkpatch.iml" filepath="$PROJECT_DIR$/apkpatch/apkpatch.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/patch1/patch1.iml" filepath="$PROJECT_DIR$/patch1/patch1.iml" />
