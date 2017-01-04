@@ -42,8 +42,8 @@ public class PatchBaseActivity extends Activity {
         }
         Resources superRes = super.getResources();
         mResources = new Resources(mAssetManager, superRes.getDisplayMetrics(), superRes.getConfiguration());
-         mTheme = mResources.newTheme();
-         mTheme.setTo(super.getTheme());
+        mTheme = mResources.newTheme();
+        mTheme.setTo(super.getTheme());
     }
 
     @Override
