@@ -1,9 +1,10 @@
-package me.apk.container;
+package me.apk.test;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class SplashActivity extends AppCompatActivity {
+import me.apk.container.HostEntryActivity;
+
+public class SplashActivity extends HostEntryActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

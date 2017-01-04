@@ -1,4 +1,4 @@
-package me.apk.container;
+package me.apk.test;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

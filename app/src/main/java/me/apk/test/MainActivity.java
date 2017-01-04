@@ -1,4 +1,4 @@
-package me.apk.container;
+package me.apk.test;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
