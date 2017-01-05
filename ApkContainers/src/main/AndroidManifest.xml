@@ -6,8 +6,9 @@
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true">
-        <activity android:name=".HostEntryActivity" />
-        <activity android:name=".StubActivity"></activity>
+        <activity android:name=".HostEntryActivity">
+        </activity>
+        <activity android:name=".ProxyActivity"></activity>
     </application>
 
 </manifest>

@@ -7,7 +7,7 @@ import android.util.Log;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
-import me.apk.container.StubActivity;
+import me.apk.container.ProxyActivity;
 
 
 /**
@@ -53,7 +53,7 @@ import me.apk.container.StubActivity;
 
             // 这里我们把启动的Activity临时替换为 StubActivity
             ComponentName componentName = new ComponentName(
-                    StubActivity.class.getName().replace(".StubActivity",""), StubActivity.class.getName());
+                    ProxyActivity.class.getName().replace(".StubActivity",""), ProxyActivity.class.getName());
 
             newIntent.setComponent(componentName);
 
