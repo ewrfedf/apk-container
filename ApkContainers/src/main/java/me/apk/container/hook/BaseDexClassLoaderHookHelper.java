@@ -24,6 +24,18 @@ import static android.content.ContentValues.TAG;
  */
 public final class BaseDexClassLoaderHookHelper {
 
+    /**
+     *  加载 class
+     * @param cl
+     * @param apkFile
+     * @param optDexFile
+     * @throws IllegalAccessException
+     * @throws NoSuchMethodException
+     * @throws IOException
+     * @throws InvocationTargetException
+     * @throws InstantiationException
+     * @throws NoSuchFieldException
+     */
     public static void patchClassLoader(ClassLoader cl, File apkFile, File optDexFile)
             throws IllegalAccessException, NoSuchMethodException, IOException, InvocationTargetException, InstantiationException, NoSuchFieldException {
         // 获取 BaseDexClassLoader : pathList
@@ -75,7 +87,7 @@ public final class BaseDexClassLoaderHookHelper {
 
 
     /**
-     * 参考 https://github.com/singwhatiwanna/dynamic-load-apk
+     * 加载资源
      *
      * @param ctx
      * @param mDexPath

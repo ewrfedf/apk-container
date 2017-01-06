@@ -9,29 +9,29 @@ import java.io.File;
 import java.lang.reflect.Method;
 
 /**
- * Created by Zheng on 17/1/3.
+ * Patch Apk 中的 Activity 必须要继承该 Activity
+ * 该 Activity 可以加载 Patch Apk 中的资源
+ * 否则 UI 将因不能找到资源显示空白页
  */
-
 public class PatchBaseActivity extends Activity {
     private AssetManager mAssetManager;
     private Resources mResources;
-    private String mDexPath;
     private Resources.Theme mTheme;
 
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(newBase);
-        try {
-            File dexFile = getFileStreamPath("patch.apk");
-            mDexPath = dexFile.getPath();
-        } catch (Throwable throwable) {
-            throw new RuntimeException("hook failed", throwable);
-        }
         loadResources();
     }
 
 
+    /**
+     * 获取 Host 中已经加载好的 Patch Apk 中的 Resources
+     */
     protected void loadResources() {
+        // 宿主 已经将当前 Patch Apk 加载到程序私有目录下 名称必须一致为 "patch.apk"
+        File dexFile = getFileStreamPath("patch.apk");
+        String mDexPath = dexFile.getPath();
         try {
             AssetManager assetManager = AssetManager.class.newInstance();
             Method addAssetPath = assetManager.getClass().getMethod("addAssetPath", String.class);

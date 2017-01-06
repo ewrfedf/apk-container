@@ -14,7 +14,7 @@ import me.apk.container.ProxyActivity;
  * @author weishu
  * @dete 16/1/7.
  */
-/* package */ class IActivityManagerHandler implements InvocationHandler {
+class IActivityManagerHandler implements InvocationHandler {
 
     private static final String TAG = "IActivityManagerHandler";
 
@@ -53,7 +53,7 @@ import me.apk.container.ProxyActivity;
 
             // 这里我们把启动的Activity临时替换为 StubActivity
             ComponentName componentName = new ComponentName(
-                    ProxyActivity.class.getName().replace(".StubActivity",""), ProxyActivity.class.getName());
+                    ProxyActivity.class.getName().replace(".ProxyActivity",""), ProxyActivity.class.getName());
 
             newIntent.setComponent(componentName);
 
@@ -63,7 +63,7 @@ import me.apk.container.ProxyActivity;
             // 替换掉Intent, 达到欺骗AMS的目的
             args[index] = newIntent;
 
-            Log.d(TAG, "hook success");
+            Log.d(TAG, "hookForLoadClass success");
             return method.invoke(mBase, args);
 
         }
