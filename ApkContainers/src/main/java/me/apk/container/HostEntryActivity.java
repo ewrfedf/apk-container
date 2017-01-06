@@ -1,37 +1,42 @@
 package me.apk.container;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 
 import java.io.File;
 
 import me.apk.container.hook.AMSHookHelper;
 import me.apk.container.hook.BaseDexClassLoaderHookHelper;
-import me.apk.container.hook.Utils;
 
 /**
- * 1、下载 patch apk
- * 2、load patch apk
- * 3、跳入指定 Activity 以及 携带的参数
+ *
+ * Hook 加载 Class
+ * Hook 加载未声明的 Activity
+ *
+ * 如果已经 Load Apk ，那么直接在 attachBaseContext 中 Hook
+ *
  */
 public abstract class HostEntryActivity extends AppCompatActivity {
 
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(newBase);
+        File dexFile = getFileStreamPath("patch.apk");
+        if (dexFile.exists()) {//如果已经升级 直接加载
+            hookForLoadClass();
+            hookForLoadUndefineActivity();
+        }
+    }
+
     /**
      * 加载 class
-     * @param patchPath 需要加载的 apk
      */
-    protected void hookForLoadClass(String patchPath) {
+    protected void hookForLoadClass() {
         try {
-            //apk 文件需要放到程序目录下 否则资源加载不成功
             File dexFile = getFileStreamPath("patch.apk");
-            String path = dexFile.getPath();
-            if (!dexFile.exists()) {
-                Utils.copyFile(patchPath, path);
-//                可以使用 Assets 中的 Apk 进行测试
-//                Utils.extractAssets(this, "patch.apk");
-            }
             File optDexFile = getFileStreamPath("xx.odex");//名称任意 非 apk
             BaseDexClassLoaderHookHelper.patchClassLoader(getClassLoader(), dexFile, optDexFile);
-
         } catch (Throwable throwable) {
             throw new RuntimeException("hookForLoadClass failed", throwable);
         }
